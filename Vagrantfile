@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
     master.vm.provider "virtualbox" do |vb|
       vb.memory = "512"
       vb.cpus = 1
+      vb.name = "P1 - MASTER"
     end
     master.vm.provision "shell", path: "bootMaster.sh"
   end
@@ -26,6 +27,7 @@ Vagrant.configure("2") do |config|
     worker.vm.provider "virtualbox" do |vb|
       vb.memory = "512"
       vb.cpus = 1
+      vb.name = "P1 - WORKER"
     end
     worker.vm.provision "shell", path: "bootWorker.sh"
   end
