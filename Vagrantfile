@@ -6,39 +6,11 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 
-# Vagrant.configure("2") do |config|
-
-#   config.vm.define "server" do |server|
-#     server.vm.box = "debian/buster64"
-#     server.vm.hostname = "server"
-#     server.vm.network "private_network", ip: "192.168.56.110"  do |vbmaster|
-#       # vbmaster.name = "Master"
-#       # vbmaster.memory = "1024"
-#       # vbmaster.cpus = 1
-#     end 
-#     config.vm.provision "shell", run: "once", path: "bootMaster.sh"
-#   end
-
-#   config.vm.define "server_worker" do |server_worker|
-#     server_worker.vm.box = "debian/buster64"
-#     server_worker.vm.hostname = "server-worker"
-#     server_worker.vm.network "private_network", ip: "192.168.56.111" do |vbworker|
-#       # vbworker.name = "Worker"
-#       # vbworker.memory = "1024"
-#       # vbworker.cpus = 1
-#     end 
-#     config.vm.provision "shell", run: "once", path: "bootWorker.sh"
-#   end
-
-# end
-
-
 Vagrant.configure("2") do |config|
 
-  config.vm.define "master" do |master|
-    master.vm.box = "debian/buster64"
-    master.vm.hostname = "master"
-    master.vm.synced_folder ".", "/vagrant", type: "rsync"
+  config.vm.define "jbettiniS" do |master|
+    master.vm.box = "ubuntu/bionic64"
+    master.vm.hostname = "jbettiniS"
     master.vm.network "private_network", ip: "192.168.56.110"
     master.vm.provider "virtualbox" do |vb|
       vb.memory = "512"
@@ -47,10 +19,9 @@ Vagrant.configure("2") do |config|
     master.vm.provision "shell", path: "bootMaster.sh"
   end
 
-  config.vm.define "worker" do |worker|
-    worker.vm.box = "debian/buster64"
-    worker.vm.hostname = "worker"
-    worker.vm.synced_folder ".", "/vagrant", type: "rsync"
+  config.vm.define "jbettiniSW" do |worker|
+    worker.vm.box = "ubuntu/bionic64"
+    worker.vm.hostname = "jbettiniSW"
     worker.vm.network "private_network", ip: "192.168.56.111"
     worker.vm.provider "virtualbox" do |vb|
       vb.memory = "512"
