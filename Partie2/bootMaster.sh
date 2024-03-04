@@ -13,3 +13,4 @@ kubectl create configmap app1-html --from-file=/vagrant/app/app1/app1.html
 kubectl create configmap app2-html --from-file=/vagrant/app/app2/app2.html
 kubectl create configmap app3-html --from-file=/vagrant/app/app3/app3.html
 kubectl apply -f /vagrant/deployment.yaml
+
