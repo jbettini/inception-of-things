@@ -20,13 +20,16 @@ spec:
         ports: 
         - containerPort: 80
         volumeMounts:
-        - name: app1
-          mountPath: /usr/share/nginx/html/app1.html
-          subPath: app1.html
+        - name: app1-volume
+          mountPath: /usr/share/nginx/html
+          # subPath: index.html
       volumes:
-      - name: app1
+      - name: app1-volume
         configMap:
-          name: app1
+          name: app1-html
+          items:
+          - key: app1.html
+            path: index.html
 
 ---
 
@@ -52,13 +55,16 @@ spec:
         ports: 
         - containerPort: 80
         volumeMounts:
-        - name: app2
-          mountPath: /usr/share/nginx/html/app2.html
-          subPath: app2.html
+        - name: app2-volume
+          mountPath: /usr/share/nginx/html
+          # subPath: index.html
       volumes:
-      - name: app2
+      - name: app2-volume
         configMap:
-          name: app2
+          name: app2-html
+          items:
+          - key: app2.html
+            path: index.html
 
 ---
 
@@ -84,10 +90,13 @@ spec:
         ports: 
         - containerPort: 80
         volumeMounts:
-        - name: app3
-          mountPath: /usr/share/nginx/html/app3.html
-          subPath: app3.html
+        - name: app3-volume
+          mountPath: /usr/share/nginx/html
+          # subPath: index.html
       volumes:
-      - name: app3
+      - name: app3-volume
         configMap:
-          name: app3
+          name: app3-html
+          items:
+          - key: app3.html
+            path: index.html
