@@ -23,6 +23,3 @@ Vagrant.configure("2") do |config|
 end
 
 # #CMD interressante : ssh vagrant@localhost -p 2222 -i .vagrant/machines/"machineName"/virtualbox/private_key
-
-
-

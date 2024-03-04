@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app1
+  labels:
+    app: app1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      containers:
+      - name: app1
+        image: nginx:latest
+        ports: 
+        - containerPort: 80
+        volumeMounts:
+        - name: app1
+          mountPath: /usr/share/nginx/html/app1.html
+          subPath: app1.html
+      volumes:
+      - name: app1
+        configMap:
+          name: app1
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app2
+  labels:
+    app: app2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app2
+  template:
+    metadata:
+      labels:
+        app: app2
+    spec:
+      containers:
+      - name: app2
+        image: nginx:latest
+        ports: 
+        - containerPort: 80
+        volumeMounts:
+        - name: app2
+          mountPath: /usr/share/nginx/html/app2.html
+          subPath: app2.html
+      volumes:
+      - name: app2
+        configMap:
+          name: app2
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app3
+  labels:
+    app: app3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app3
+  template:
+    metadata:
+      labels:
+        app: app3
+    spec:
+      containers:
+      - name: app3
+        image: nginx:latest
+        ports: 
+        - containerPort: 80
+        volumeMounts:
+        - name: app3
+          mountPath: /usr/share/nginx/html/app3.html
+          subPath: app3.html
+      volumes:
+      - name: app3
+        configMap:
+          name: app3
