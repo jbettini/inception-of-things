@@ -1,0 +1,2 @@
+- K alias for kubectl doesn't work
+- VMs don't have an eth1
