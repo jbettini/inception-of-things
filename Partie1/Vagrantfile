@@ -9,30 +9,32 @@
 Vagrant.configure("2") do |config|
 
   config.vm.define "jbettiniS" do |master|
-    master.vm.box = "ubuntu/bionic64"
+    master.vm.box = "generic/ubuntu1804"
     master.vm.hostname = "jbettiniS"
     master.vm.network "private_network", ip: "192.168.56.110"
-    master.vm.provider "virtualbox" do |vb|
-      vb.memory = "1024"
-      vb.cpus = 1
-      vb.name = "P1 - MASTER"
+    master.vm.synced_folder ".", "/vagrant", type: "nfs", nfs_version: 4, nfs_udp: false
+    master.vm.provider :libvirt do |libvirt|
+      libvirt.memory = 1024
+      libvirt.cpus = 1
     end
-    master.vm.provision "shell", path: "bootMaster.sh"
+    master.vm.provision "shell", path: "./scripts/bootMaster.sh"
   end
 
   config.vm.define "jbettiniSW" do |worker|
-    worker.vm.box = "ubuntu/bionic64"
+    worker.vm.box = "generic/ubuntu1804"
     worker.vm.hostname = "jbettiniSW"
     worker.vm.network "private_network", ip: "192.168.56.111"
-    worker.vm.provider "virtualbox" do |vb|
-      vb.memory = "1024"
-      vb.cpus = 1
-      vb.name = "P1 - WORKER"
+    worker.vm.synced_folder ".", "/vagrant", type: "nfs", nfs_version: 4, nfs_udp: false
+    worker.vm.provider :libvirt do |libvirt|
+      libvirt.memory = 1024
+      libvirt.cpus = 1
     end
-    worker.vm.provision "shell", path: "bootWorker.sh"
+    worker.vm.provision "shell", path: "./scripts/bootWorker.sh"
   end
 
 end
+
+
 
 # #CMD interressante : ssh vagrant@localhost -p 2222 -i .vagrant/machines/"machineName"/virtualbox/private_key
 

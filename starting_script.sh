@@ -3,23 +3,11 @@
 # Mise à jour des paquets et installation des dépendances requises
 sudo apt-get update -y
 sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
-
-# Installation de VirtualBox
-sudo apt-get install -y virtualbox
-
-# Installation de Vagrant
-curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-sudo apt-get update -y
-sudo apt-get install -y vagrant
-
 # Installation de Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt-get update -y
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-
-# Ajout de l'utilisateur courant au groupe Docker pour exécuter Docker sans sudo
 sudo usermod -aG docker $USER
 
 # Installation de Docker Compose
