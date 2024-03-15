@@ -22,7 +22,7 @@ echo -e "\e[34mNamesapce dev done\e[0m"
 echo "En attente de la suppression du namespace 'argocd'..."
 while kubectl get ns argocd > /dev/null 2>&1; do 
   echo "En attente de la suppression complète du namespace 'argocd'..."
-  sleep 5
+  sleep 2
 done
 echo "Namespace 'argocd' supprimé."
 echo -e "\e[34mEverythings in ns argocd done\e[0m"
@@ -32,7 +32,7 @@ echo -e "\e[34mEverythings in ns argocd done\e[0m"
 echo "En attente de la suppression du namespace 'dev'..."
 while kubectl get ns dev > /dev/null 2>&1; do 
   echo "En attente de la suppression complète du namespace 'dev'..."
-  sleep 5
+  sleep 2
 done
 echo "Namespace 'dev' supprimé."
 echo -e "\e[34mEverythings in ns dev done\e[0m"
