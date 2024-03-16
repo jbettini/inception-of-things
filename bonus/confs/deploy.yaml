@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: http://gitlab-webservice-default.gitlab.svc.cluster.local:8181/root/gitlab.git
     targetRevision: HEAD
-    path: argomanifest
+    path: argoManifest
   destination:
     server: https://kubernetes.default.svc
     namespace: dev
