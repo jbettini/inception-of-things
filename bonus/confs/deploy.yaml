@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/jbettini/IOTP3-Jbettini
+    repoURL: http://gitlab-webservice-default.gitlab.svc.cluster.local:8181/root/gitlab.git
     targetRevision: HEAD
-    path: argoManifest
+    path: argomanifest
   destination:
     server: https://kubernetes.default.svc
     namespace: dev
