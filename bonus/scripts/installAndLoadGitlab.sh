@@ -11,8 +11,8 @@ helm upgrade --install gitlab gitlab/gitlab \
   --set global.hosts.domain=localdomain.com \
   --set certmanager-issuer.email=ashhxtm@gmail.com \
   --set global.hosts.https=false \
-  --set global.edition=ce \
-echo -n "\033[31mEn attente du lancement des pods... ";
+  --set global.edition=ce;
+echo -n "\033[31mEn attente du lancement des pods... \n";
 
 kubectl wait --for=condition=available deployment/gitlab-webservice-default --namespace=gitlab --timeout=600s
 
