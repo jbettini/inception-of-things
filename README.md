@@ -36,7 +36,7 @@ cd Inception-Of-Things
     -   ServerWorker in agent mode.
 -   Install kubectl.
 
-### Part 2:K3s and Three Simple Applications
+### Part 2: K3s and Three Simple Applications
 
 -   Set up one virtual machine with K3s in server mode.
 -   Deploy three web applications in the K3s instance.
